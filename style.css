@@ -49,7 +49,7 @@ nav #themes {
     align-items: center;
 }
 
-nav #themes button, .selection-button {
+nav #themes button {
     width: 10vh;
     height: 10vh;
 
@@ -61,15 +61,8 @@ nav #themes button, .selection-button {
 
 /* Main */
 
-main h1 {
-    text-align: center;
-    margin-top: 20px;
-
-    font-size: 48px;
-}
-
-.content-wrapper {
-    height: calc(100vh - 13vh - 86px);
+main {
+    height: calc(100vh - 13vh);
 
     display: flex;
     align-items: center;
@@ -87,6 +80,23 @@ main h1 {
     background-color: transparent;
 }
 
+.content-wrapper {
+    width: 100vw;
+    height: calc(100vh - 13vh);
+
+    position: relative;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content-wrapper h1 {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 48px;
+}
+
 .match-wrapper {
     width: 70vw;
     height: 90%;
@@ -94,11 +104,35 @@ main h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    margin: 30px 0;
+}
+
+.selection-button {
+    width: 15vh;
+    height: 15vh;
+
+    margin: 0 20px;
+    border: none;
+    border-radius: 8vh;
+    
+    background-color: grey;
+}
+
+.selection-button img {
+    width: 7.5vh;
+
+    margin-top: 6px;
 }
 
 .match-wrapper .results {
     height: 60%;
-    background-color: greenyellow;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 28px;
 }
 
 .match-wrapper .player-selection, .computer-selection {
@@ -129,12 +163,12 @@ nav .water img {
     color: #70ffff;
 }
 
-/* Leaf theme */
+/* plant theme */
 
-nav .leaf img {
-    content: url(images/leaf.png);
+nav .plant img {
+    content: url(images/plant.png);
 }
 
-.leaf {
+.plant {
     color: #70ff70;
 }
