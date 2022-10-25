@@ -34,17 +34,21 @@
 
             <div class="match-wrapper">
                 <div class="player-selection">
-                    <button class="selection-button" onclick="showResult('fire')"><img src="images/fire.png" alt="fire"></button>
-                    <button class="selection-button" onclick="showResult('water')"><img src="images/water.png" alt="water"></button>
-                    <button class="selection-button" onclick="showResult('plant')"><img src="images/plant.png" alt="plant"></button>
+                    <button class="player-button" onclick="showResult('fire')"><img src="images/fire.png" alt="fire"></button>
+                    <button class="player-button" onclick="showResult('water')"><img src="images/water.png" alt="water"></button>
+                    <button class="player-button" onclick="showResult('plant')"><img src="images/plant.png" alt="plant"></button>
                 </div>
 
                 <div class="results">
-                    <p>Victories: <span></span></p>
+                    <div>
+                        <p class="victories">Victories: <span></span></p>
+                        <p>|</p>
+                        <p class="rounds">Rounds: <span>0</span></p>
+                    </div>
                 </div>
 
                 <div class="computer-selection">
-                    <div class="selection-button"></div>
+                    <div class="computer-button"><img src=""></div>
                 </div>
             </div>
         </div>

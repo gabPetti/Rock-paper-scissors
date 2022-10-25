@@ -19,6 +19,7 @@ function getComputerChoice() {
 function playRound(playerSelection, victoriesCounter) {
     var computerSelection = getComputerChoice();
     var selections = playerSelection + " x " + computerSelection;
+    document.querySelector(".computer-selection img").src = `images/${computerSelection}.png`;
 
     if (playerSelection == computerSelection) {
         console.log("It's a draw, let's try again");
@@ -27,44 +28,20 @@ function playRound(playerSelection, victoriesCounter) {
     } else {
         console.log(`You won! ${playerSelection} beats ${computerSelection}`);
         victoriesCounter++;
-        document.querySelector(".results span").innerHTML = victoriesCounter;
+        document.querySelector(".victories span").innerHTML = victoriesCounter;
     }
 }
 
 function game() {
     document.getElementById("start-button").style.display = "none";
     document.querySelector(".content-wrapper").style.display = "flex";
-    document.querySelector(".results span").innerHTML = "0";
-    /*
-    var playerVictories = 0;
-    var computerVictories = 0;
-
-    var i = 1
-    while (i < 6) {
-        var roundResult = playRound();
-        while (roundResult == 0) {
-            roundResult = playRound();
-        }
-        if (roundResult > 0) {
-            playerVictories++;
-        } else if (roundResult < 0) {
-            computerVictories++;
-        }
-
-        if (playerVictories == 3) {
-            console.log("You are the winner")
-        } else if (computerVictories == 3) {
-            console.log("Game Over")
-        }
-    }
-
-    document.querySelector(".content-wrapper").style.display = "none";
-    document.getElementById("start-button").style.display = "block";
-    */
+    document.querySelector(".victories span").innerHTML = "0";
 }
 
 function showResult(element) {
-    victoriesCounter = Number(document.querySelector(".results span").innerHTML);
+    victoriesCounter = Number(document.querySelector(".victories span").innerHTML);
+    roundsCounter = Number(document.querySelector(".rounds span").innerHTML);
+
     if (element == "fire") {
         playRound("fire", victoriesCounter)
     } else if (element == "water") {
@@ -72,6 +49,8 @@ function showResult(element) {
     } else {
         playRound("plant", victoriesCounter)
     }
+    roundsCounter++;
+    document.querySelector(".rounds span").innerHTML = roundsCounter;
 }
 
 // Theme customizations
