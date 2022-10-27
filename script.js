@@ -27,19 +27,27 @@ function playRound(playerSelection, winsCounter) {
     } else if (selections == "fire x water" || selections == "water x plant" || selections == "plant x fire") {
         console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
         document.querySelector(".results h3").innerHTML = `You lose! ${computerSelection} beats ${playerSelection}`;
+
+        roundsCounter++;
     } else {
         console.log(`You won! ${playerSelection} beats ${computerSelection}`);
         document.querySelector(".results h3").innerHTML = `You won! ${playerSelection} beats ${computerSelection}`;
 
+        roundsCounter++;
         winsCounter++;
         document.querySelector(".wins span").innerHTML = winsCounter;
     }
 }
 
+// Set up the game environment
+
 function game() {
     document.getElementById("start-button").style.display = "none";
-    document.querySelector(".content-wrapper").style.display = "flex";
+    document.getElementById("content-wrapper").style.display = "flex";
+    document.getElementById("result-wrapper").style.display = "none";
 }
+
+// Forward player's choice as a parameter to the function playRound()
 
 function showResult(element) {
     winsCounter = Number(document.querySelector(".wins span").innerHTML);
@@ -52,8 +60,23 @@ function showResult(element) {
     } else {
         playRound("plant", winsCounter)
     }
-    roundsCounter++;
     document.querySelector(".rounds span").innerHTML = roundsCounter;
+
+    if (roundsCounter == 5) {
+        if (winsCounter > 2) {
+            document.querySelector("#result-wrapper h1").innerText = "Victory!";
+            console.log(winsCounter)
+        } else {
+            document.querySelector("#result-wrapper h1").innerHTML = "Defeat";
+        }
+        roundsCounter = 0;
+        winsCounter = 0;
+        document.querySelector(".wins span").innerHTML = winsCounter;
+        document.querySelector(".rounds span").innerHTML = roundsCounter;
+        document.getElementById("start-button").style.display = "none";
+        document.getElementById("content-wrapper").style.display = "none";
+        document.getElementById("result-wrapper").style.display = "flex"
+    }
 }
 
 // Theme customizations
