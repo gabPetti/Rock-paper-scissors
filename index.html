@@ -12,38 +12,38 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet"> 
 </head>
-<body>
+<body class="light">
     <header>
-        <nav>
+        <nav class="light">
             <div id="logo">
                 <h1>Fire Water Plant</h1>
-                <p class="water">The ultimate game</p>
+                <p class="light">The ultimate game</p>
             </div>
 
             <div id="themes">
                 <h2 style="margin-right: 30px;">Change theme -></h2>
-                <button onclick="themeChange()" id="theme-button" class="fire"><img alt="theme icon"></button>
+                <button onclick="themeChange()" id="theme-button" class="light"><img alt="theme icon"></button>
             </div>
         </nav>
     </header>
     <main>
-        <button id="start-button" onclick="game()">START</button>
+        <button id="start-button" class="light" onclick="game()">START</button>
 
         <div class="content-wrapper">
             <h1>Select your element</h1>
 
             <div class="match-wrapper">
                 <div class="player-selection">
-                    <button class="player-button" onclick="showResult('fire')"><img src="images/fire.png" alt="fire"></button>
+                    <button class="player-button" onclick="showResult('fire')"><img src="images/fire.png" alt="light"></button>
                     <button class="player-button" onclick="showResult('water')"><img src="images/water.png" alt="water"></button>
                     <button class="player-button" onclick="showResult('plant')"><img src="images/plant.png" alt="plant"></button>
                 </div>
 
                 <div class="results">
+                    <h3></h3>
                     <div>
-                        <p class="victories">Victories: <span></span></p>
-                        <p>|</p>
-                        <p class="rounds">Rounds: <span>0</span></p>
+                        <p class="wins light">Wins: <span class="light">0</span></p>
+                        <p class="rounds light">Rounds: <span class="light">0</span></p>
                     </div>
                 </div>
 
@@ -56,6 +56,7 @@
     <footer>
 
     </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

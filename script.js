@@ -16,38 +16,41 @@ function getComputerChoice() {
 
 // play a single round of the game 
 
-function playRound(playerSelection, victoriesCounter) {
+function playRound(playerSelection, winsCounter) {
     var computerSelection = getComputerChoice();
     var selections = playerSelection + " x " + computerSelection;
     document.querySelector(".computer-selection img").src = `images/${computerSelection}.png`;
 
     if (playerSelection == computerSelection) {
         console.log("It's a draw, let's try again");
+        document.querySelector(".results h3").innerHTML = "It's a draw, let's try again";
     } else if (selections == "fire x water" || selections == "water x plant" || selections == "plant x fire") {
         console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
+        document.querySelector(".results h3").innerHTML = `You lose! ${computerSelection} beats ${playerSelection}`;
     } else {
         console.log(`You won! ${playerSelection} beats ${computerSelection}`);
-        victoriesCounter++;
-        document.querySelector(".victories span").innerHTML = victoriesCounter;
+        document.querySelector(".results h3").innerHTML = `You won! ${playerSelection} beats ${computerSelection}`;
+
+        winsCounter++;
+        document.querySelector(".wins span").innerHTML = winsCounter;
     }
 }
 
 function game() {
     document.getElementById("start-button").style.display = "none";
     document.querySelector(".content-wrapper").style.display = "flex";
-    document.querySelector(".victories span").innerHTML = "0";
 }
 
 function showResult(element) {
-    victoriesCounter = Number(document.querySelector(".victories span").innerHTML);
+    winsCounter = Number(document.querySelector(".wins span").innerHTML);
     roundsCounter = Number(document.querySelector(".rounds span").innerHTML);
 
     if (element == "fire") {
-        playRound("fire", victoriesCounter)
+        playRound("fire", winsCounter)
     } else if (element == "water") {
-        playRound("water", victoriesCounter)
+        playRound("water", winsCounter)
     } else {
-        playRound("plant", victoriesCounter)
+        playRound("plant", winsCounter)
     }
     roundsCounter++;
     document.querySelector(".rounds span").innerHTML = roundsCounter;
@@ -57,20 +60,15 @@ function showResult(element) {
 
 var themeButton = document.getElementById("theme-button");
 function themeChange() {
-    if(themeButton.classList == "fire") {
-        themeButton.classList.remove("fire");
-        themeButton.classList.add("water");
-        document.querySelectorAll(".fire").classList.add("water");
-        document.querySelectorAll(".fire").classList.remove("fire");
-    } else if(themeButton.classList == "water") {
-        themeButton.classList.remove("water");
-        themeButton.classList.add("plant");
-        document.querySelectorAll(".water").classList.add("plant");
-        document.querySelectorAll(".water").classList.remove("water");
+    if (themeButton.classList == "light") {
+        $('.light').addClass('fire').removeClass('light');
+    } else if (themeButton.classList == "fire") {
+        $('.fire').addClass('water').removeClass('fire');
+    } else if (themeButton.classList == "water") {
+        $('.water').addClass('plant').removeClass('water');
+    } else if (themeButton.classList == "plant") {
+        $('.plant').addClass('dark').removeClass('plant');
     } else {
-        themeButton.classList.remove("plant");
-        themeButton.classList.add("fire");
-        document.querySelectorAll(".plant").classList.add("fire");
-        document.querySelectorAll(".plant").classList.remove("plant");
+        $('.dark').addClass('light').removeClass('dark');
     }
 }

@@ -157,7 +157,7 @@ main {
     border: none;
     border-radius: 8vh;
 
-    background-color: grey;
+    background-color: rgba(128, 128, 128, 0.3);
 }
 
 .player-button img, .computer-button img {
@@ -166,10 +166,11 @@ main {
     margin-top: 6px;
 }
 
-.match-wrapper .results {
-    height: 60%;
+.results {
+    height: 40%;
 
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 
@@ -185,51 +186,147 @@ main {
     justify-content: center;
 }
 
+.results h3 {
+    font-weight: 300;
+    height: 70px;
+}
+
 .results div {
-    width: 25vw;
-    height: 45px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    padding: 0 15px;
-    border-radius: 25px;
-
-    background-color: grey;
 }
 
-/* Fire theme */
+.results .wins {
+    margin-right: 2px;
+    border-radius: 25px 0 0 25px;
+    padding: 2px 15px;
+    background-color:  rgba(128, 128, 128, 0.3);
+}
+
+.results .rounds {
+    margin-left: 2px;
+    border-radius: 0 25px 25px 0;
+    padding: 2px 15px;
+    background-color:  rgba(128, 128, 128, 0.3);
+}
+
+/* ---------------------------- Light theme */
+
+.light h1, .light h2, .light h3{
+    color: black;
+}
+
+#start-button.light {
+    border: 2px solid black;
+}
+
+body.light {
+    background-color: #cccccc;
+}
+
+nav .light img {
+    content: url(images/light.png);
+}
+
+nav.light {
+    border-bottom: 2px solid black;
+}
+
+#themes button.light {
+    border: 2px solid black;
+}
+
+.light {
+    color: black;
+}
+
+/* ---------------------------- Fire theme */
+
+body.fire {
+    background-color: #2f2020;
+}
 
 nav .fire img {
     content: url(images/fire.png);
 }
 
-/* #themes button.fire {
-    border: 2px solid #ffffff;
-} */
+nav.fire {
+    border-bottom: 2px solid #ff7070;
+}
+
+#themes button.fire {
+    border: 2px solid #ff7070;
+}
 
 .fire {
     color: #ff7070;
 }
 
 
-/* Water theme */
+/* ---------------------------- Water theme */
+
+body.water {
+    background-color: #202f2f;
+}
 
 nav .water img {
     content: url(images/water.png);
+}
+
+nav.water {
+    border-bottom: 2px solid #70ffff;
+}
+
+#themes button.water {
+    border: 2px solid #70ffff;
 }
 
 .water {
     color: #70ffff;
 }
 
-/* plant theme */
+/* ---------------------------- Plant theme */
+
+body.plant {
+    background-color: #202f20;
+}
 
 nav .plant img {
     content: url(images/plant.png);
 }
 
+nav.plant {
+    border-bottom: 2px solid #70ff70;
+}
+
+#themes button.plant {
+    border: 2px solid #70ff70;
+}
+
 .plant {
     color: #70ff70;
+}
+
+/* ---------------------------- Dark theme */
+
+body.dark {
+    background-color: #202020;
+}
+
+nav .dark img {
+    content: url(images/dark.png);
+}
+
+nav.dark {
+    border-bottom: 2px solid white;
+}
+
+#themes button.dark {
+    border: 2px solid white;
+}
+
+.dark {
+    color: white;
 }
