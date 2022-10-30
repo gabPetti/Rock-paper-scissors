@@ -12,7 +12,7 @@ body {
     background-color: rgb(46, 46, 46);
 }
 
-button {
+button, .computer-button{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,7 +20,7 @@ button {
     cursor: pointer;
 }
 
-button img{
+button img, .computer-button img{
     width: 55%;
 }
 
